@@ -481,3 +481,40 @@ section{padding:96px 0}
 .logo-text b,.logo-text small,.menu>li>a,.menu>li>button{white-space:nowrap}
 .menu>li>a,.menu>li>button{padding:10px 11px}
 @media (max-width:1240px){.nav-cta .btn-wa{display:none}.menu>li>a,.menu>li>button{padding:10px 8px;font-size:.9rem}}
+
+/* =========================================================
+   v3 — Kapakta gerçek çiçek vitrini, çizim/dekor sadeleştirme
+   ========================================================= */
+.hero::before,.hero::after,.page-hero::after{display:none}
+.hero{background:var(--cream)}
+.page-hero{background:#f6efe3}
+.hero-v3{padding:44px 0 80px}
+.hero-v3 .hero-grid{grid-template-columns:.9fr 1.1fr;gap:44px}
+.hero-v3 h1{font-size:clamp(2.4rem,4.6vw,4rem)}
+.hero-v3 .lead{margin:16px 0 28px}
+.hero-loc{display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--moss);margin:14px 0 0}
+.hero-loc svg{width:18px;height:18px;color:var(--rose);flex:none}
+.mosaic{display:grid;grid-template-columns:1.35fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:600px}
+.mosaic .m{position:relative;overflow:hidden;border-radius:18px;background:#e9e1d4;cursor:zoom-in}
+.mosaic .m img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.mosaic .m:hover img{transform:scale(1.05)}
+.mosaic .m1{grid-row:1/3}
+.m-lbl{position:absolute;left:10px;bottom:10px;background:rgba(255,253,249,.94);color:var(--forest);font-size:.78rem;font-weight:800;padding:6px 10px;border-radius:8px}
+.art-img{width:100%;height:100%;object-fit:cover;display:block}
+.post-card .art{padding:0;overflow:hidden}
+.page-hero .ph-art > .art-img{border-radius:24px;aspect-ratio:4/5;max-width:340px;margin-left:auto}
+.cta-art img{width:100%;max-width:300px;aspect-ratio:4/5;object-fit:cover;border-radius:24px;margin-left:auto;display:block;border:6px solid rgba(255,255,255,.12)}
+.hero-art > .art-img{border-radius:24px;aspect-ratio:4/5}
+.ph-photo{transform:none;border-radius:20px}
+@media (max-width:980px){
+  .hero-v3{padding:20px 0 60px}
+  .hero-v3 .hero-grid{grid-template-columns:1fr;gap:26px}
+  .mosaic{order:-1;height:auto;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:8px}
+  .mosaic .m1{grid-row:auto;grid-column:1/-1;aspect-ratio:4/3}
+  .mosaic .m:not(.m1){aspect-ratio:1/1}
+  .mosaic .m:not(.m1) .m-lbl{display:none}
+}
+.hero-v3 .hero-grid{align-items:start}
+.hero-v3 h1{font-size:clamp(2.3rem,4vw,3.4rem)}
+.hero-v3 .btn-row .btn{padding:13px 20px}
+.mosaic{height:560px;margin-top:6px}
