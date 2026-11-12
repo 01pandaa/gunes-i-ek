@@ -32,4 +32,4 @@ Tüm `.html` dosyalarında, `sitemap.xml` ve `robots.txt` içinde `https://01pan
 
 ## Gerçek fotoğraf eklemek (eski not)
 Ürün ve hizmet görselleri şu an SVG illüstrasyon. Gerçek fotoğraf için ilgili kartın `<div class="art ...">` içindeki `<svg>` yerine
-`<img src="assets/img/urun-adi.webp" alt="..." loading="lazy" style="width:100%;height:100%;object-fit:cover">` koyabilirsiniz.
+`<img src="assets/img/urun-adi.webp" alt="..." loading="lazy" style="width:100%;height:100%;object-fit:cover">` koyabilirsiniz. 
