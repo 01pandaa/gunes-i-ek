@@ -22,7 +22,7 @@ Adana Güneş Çiçek için hazırlanmış, çok sayfalı, mobil uyumlu ve SEO o
 
 ## Yayına alma (GitHub Pages)
 Settings → Pages → Source: `Deploy from a branch` → Branch: `main` / `(root)` → Save.
-Site şu adreste açılır: https://01pandaa.github.io/gunes-i-ek/
+Site adresi: https://www.gunescicekadana.com/ (yedek: https://01pandaa.github.io/gunes-i-ek/). Her `main` güncellemesinde `.github/workflows/pages.yml` siteyi otomatik yayınlar.
 
 ## Özel alan adı kullanılırsa
 Tüm `.html` dosyalarında, `sitemap.xml` ve `robots.txt` içinde `https://01pandaa.github.io/gunes-i-ek` adresini yeni alan adıyla değiştirin (toplu bul-değiştir).

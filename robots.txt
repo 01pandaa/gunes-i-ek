@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://01pandaa.github.io/gunes-i-ek/sitemap.xml
+Sitemap: https://www.gunescicekadana.com/sitemap.xml
