@@ -89,3 +89,41 @@
   // Yıl
   document.querySelectorAll("[data-year]").forEach(function(el){ el.textContent = new Date().getFullYear(); });
 })();
+
+/* Galeri (lightbox) */
+(function(){
+  var lb = document.getElementById("lb");
+  if (!lb) return;
+  var img = lb.querySelector("img"), cap = lb.querySelector("figcaption"), order = lb.querySelector(".lb-order");
+  var list = [], idx = 0, lastFocus = null;
+  function visible(){ return Array.prototype.filter.call(document.querySelectorAll("a[data-lb]"), function(a){ return a.offsetParent !== null; }); }
+  function show(i){
+    idx = (i + list.length) % list.length;
+    var a = list[idx];
+    img.src = a.getAttribute("href");
+    img.alt = a.querySelector("img") ? a.querySelector("img").alt : "";
+    cap.textContent = a.getAttribute("data-caption") || "";
+    var card = a.closest(".prod");
+    var w = card && card.querySelector(".btn-wa");
+    if (w) { order.href = w.href; order.style.display = ""; } else { order.style.display = "none"; }
+  }
+  function open(a){ list = visible(); lastFocus = a; lb.hidden = false; document.body.style.overflow = "hidden"; show(list.indexOf(a)); lb.querySelector(".lb-x").focus(); }
+  function close(){ lb.hidden = true; img.src = ""; document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest("a[data-lb]");
+    if (a) { e.preventDefault(); open(a); }
+  });
+  lb.querySelector(".lb-x").addEventListener("click", close);
+  lb.querySelector(".lb-prev").addEventListener("click", function(){ show(idx - 1); });
+  lb.querySelector(".lb-next").addEventListener("click", function(){ show(idx + 1); });
+  lb.addEventListener("click", function(e){ if (e.target === lb) close(); });
+  document.addEventListener("keydown", function(e){
+    if (lb.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(idx - 1);
+    if (e.key === "ArrowRight") show(idx + 1);
+  });
+  var sx = null;
+  lb.addEventListener("touchstart", function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener("touchend", function(e){ if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1)); sx = null; });
+})();

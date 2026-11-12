@@ -391,3 +391,93 @@ section{padding:96px 0}
   .ig-tiles{gap:8px}
   .topbar .tb-links a:not(:first-child){display:none}
 }
+
+/* =========================================================
+   v2 — Gerçek fotoğraflar, kategori şeridi, galeri
+   ========================================================= */
+.art.photo,.art-box.photo,.ig-tiles a,.ct-img,.dropdown .di{overflow:hidden}
+.art.photo img,.art-box.photo img,.ig-tiles a img,.ct-img img,.dropdown .di img,.hero-photo img,.ph-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.svc-card .art.photo{aspect-ratio:4/3;background:#eee}
+.svc-card .art.photo img{transition:transform .6s}
+.svc-card:hover .art.photo img{transform:scale(1.06)}
+.art-box.photo{aspect-ratio:4/5;box-shadow:var(--shadow)}
+.ig-tiles a{background:#eee}
+.ig-tiles a img{transition:transform .5s}
+.ig-tiles a:hover img{transform:scale(1.08)}
+
+/* Hero fotoğraf */
+.hero-art .disc{inset:10% 0 0 14%;background:radial-gradient(circle at 30% 30%,var(--sun-2),var(--sun));opacity:.9}
+.hero-photo{position:absolute;inset:2% 10% 8% 2%;z-index:2;border-radius:46% 54% 44% 56%/52% 44% 56% 48%;overflow:hidden;box-shadow:0 30px 60px -25px rgba(29,58,42,.55);border:8px solid var(--paper);animation:morph 14s ease-in-out infinite}
+
+/* Sayfa başlığı fotoğrafı */
+.ph-photo{position:relative;max-width:360px;margin-left:auto;aspect-ratio:4/5;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);border:6px solid var(--paper);transform:rotate(2deg)}
+.ph-badge{position:absolute;left:14px;bottom:14px;background:var(--paper);color:var(--forest);font-weight:800;font-size:.8rem;padding:8px 12px;border-radius:999px;display:inline-flex;gap:6px;align-items:center}
+.ph-badge svg{width:16px;height:16px;color:var(--sun)}
+
+/* Kategori şeridi */
+.cat-strip{display:grid;grid-template-columns:repeat(8,1fr);gap:16px}
+.cat-tile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+.cat-tile .ct-img{width:100%;aspect-ratio:1/1;border-radius:24px;border:3px solid var(--paper);box-shadow:var(--shadow-sm);margin-bottom:8px;transition:transform .3s,box-shadow .3s}
+.cat-tile:hover .ct-img{transform:translateY(-4px) rotate(-1deg);box-shadow:var(--shadow)}
+.cat-tile b{font-size:.92rem;color:var(--forest);line-height:1.25}
+.cat-tile small{font-size:.76rem;color:var(--moss);font-weight:700}
+
+/* Ürün kartı (fotoğraflı) */
+.pcard .art.photo{aspect-ratio:4/5;background:#eee;position:relative;cursor:zoom-in;display:block}
+.pcard .art.photo img{transition:transform .6s}
+.pcard:hover .art.photo img{transform:scale(1.05)}
+.pcard .tag{background:var(--forest);color:#fff;top:12px;left:12px}
+.pcard .code{position:absolute;right:12px;bottom:12px;background:rgba(255,253,249,.92);color:var(--forest);font-size:.72rem;font-weight:800;letter-spacing:.06em;padding:5px 9px;border-radius:8px}
+.pcard .body{gap:6px}
+.pcat{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--moss)}
+.pcard h3{font-size:1.3rem;flex:1}
+.pbtns{display:flex;gap:8px;margin-top:6px}
+.pbtns .btn{flex:1;justify-content:center}
+.btn-icon{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--forest);color:#fff;transition:.25s}
+.btn-icon:hover{background:var(--forest-2);transform:translateY(-2px)}
+.btn-icon svg{width:18px;height:18px}
+.filters button small{opacity:.6;font-weight:700;margin-left:4px}
+
+/* Menüde küçük görseller */
+.dropdown .di img{border-radius:10px}
+.dropdown{max-height:75vh;overflow:auto}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(12,20,15,.92);display:flex;align-items:center;justify-content:center;padding:60px 70px 100px}
+.lb[hidden]{display:none}
+.lb figure{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.lb img{max-width:100%;max-height:calc(100vh - 200px);border-radius:16px;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb figcaption{color:#fff;font-weight:700;text-align:center}
+.lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:52px;height:52px;border-radius:50%;font-size:2rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.lb button:hover{background:rgba(255,255,255,.25)}
+.lb-x{top:16px;right:16px}
+.lb-prev{left:12px;top:50%;transform:translateY(-50%)}
+.lb-next{right:12px;top:50%;transform:translateY(-50%)}
+.lb-order{position:absolute;bottom:26px;left:50%;transform:translateX(-50%)}
+.lb-order:hover{transform:translateX(-50%) translateY(-2px)}
+
+@media (max-width:1080px){.cat-strip{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:980px){
+  .page-hero .ph-art{display:block}
+  .ph-photo{max-width:100%;margin:10px auto 0;transform:none;aspect-ratio:4/3}
+  .nav-cta .btn{display:none}
+}
+@media (max-width:640px){
+  .cat-strip{grid-template-columns:repeat(4,1fr);gap:10px}
+  .cat-tile .ct-img{border-radius:16px;margin-bottom:4px}
+  .cat-tile b{font-size:.74rem}
+  .cat-tile small{font-size:.66rem}
+  .pcard h3{font-size:1.02rem}
+  .pcard .tag{font-size:.6rem;padding:4px 7px;top:8px;left:8px}
+  .pcard .code{font-size:.62rem;right:8px;bottom:8px}
+  .pcat{font-size:.6rem}
+  .pbtns{gap:6px}
+  .btn-icon{width:36px;height:36px}
+  .lb{padding:60px 10px 110px}
+  .lb-prev,.lb-next{top:auto;bottom:90px;transform:none;width:44px;height:44px}
+  .lb-prev{left:16px}.lb-next{right:16px}
+  .hero-photo{border-width:5px}
+}
+.logo-text b,.logo-text small,.menu>li>a,.menu>li>button{white-space:nowrap}
+.menu>li>a,.menu>li>button{padding:10px 11px}
+@media (max-width:1240px){.nav-cta .btn-wa{display:none}.menu>li>a,.menu>li>button{padding:10px 8px;font-size:.9rem}}
